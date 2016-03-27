@@ -17,5 +17,5 @@ There is no release for IOS right now, because I don't have access to a Mac comp
 
 ##Technical specification / Credits
 This application relies on [cordova](https://cordova.apache.org/) wich is a framework for building cross-platform mobile applications. The application is written in HTML/CSS/Javascrip.
-The design is made with the [purecss framework}(http://purecss.io).  
+The design is made with the [purecss framework](http://purecss.io).  
 The network detection tool relies on UDP broadcast (using [cordova-plugin-chrome-apps-sockets-udp](https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-udp)), so you might check that your network allow this kind of request as it may be blocked by your router.
