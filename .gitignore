@@ -4,3 +4,6 @@
 #Cordova
 platforms
 plugins
+*.cer
+*.certSigningRequest
+*.keystore
