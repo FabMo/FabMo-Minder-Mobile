@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.fabmo.toolminder" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.fabmo.toolminder" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>FabMo Tool Minder</name>
     <description>
         This app will find any FabMo device bind to your network.
@@ -27,4 +27,5 @@
     <engine name="android" spec="~4.0.3" />
     <plugin name="cordova-plugin-chrome-apps-sockets-udp" spec="~1.2.2" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
+    <plugin name="cordova-plugin-zeroconf" spec="~1.1.1" />
 </widget>

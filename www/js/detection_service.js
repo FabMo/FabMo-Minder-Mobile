@@ -10,9 +10,6 @@ var ERR = "I DNT UNDRSTND !\0";
 // Second message asking for the machine informations.
 var HOSTNAME = "U NAME ?\0";
 
-
-
-
 var socket;
 var broadcastAddress = '255.255.255.255';
 var broadcastPort = 24862; // = 7777 without conversion
@@ -49,7 +46,7 @@ function detection_service(callback){
 
 
 			var new_device_array = []; // new JSON object, represent the devices that you can connect to.
-			
+
 			// new JSON object constructor
 			for (var single_dev in count_array)
 			{
@@ -79,7 +76,7 @@ function detection_service(callback){
 		callback(null,new_device_array);
 	});
 
-	
+
 }
 
 
@@ -101,7 +98,6 @@ var detection = function(t,callback) {
 					rinfo = {};
 					rinfo.address = info.remoteAddress;
 					if(ab2str(data) == OK){
-						console.log("response from : " +rinfo.address);
 						chrome.sockets.udp.send(createInfo.socketId, str2ab(HOSTNAME), rinfo.address,broadcastPort, function (info) {
 							//console.log(info);
 						});
@@ -127,6 +123,21 @@ var detection = function(t,callback) {
 				//chrome.sockets.udp.send(createInfo.socketId,str2ab(REQ),"192.168.42.1", broadcastPort,  function (info) {
 					//console.log(info);
 				//});
+				var zeroconf = cordova.plugins.zeroconf;
+				zeroconf.watch('_fabmo._tcp.local.', function(result) {
+				    var action = result.action;
+				    var service = result.service;
+				    if (action == 'added') {
+								try{
+									dev_obj = JSON.parse(service.txtRecord.fabmo);
+									device = JSON.parse('{"device" : ' + service.txtRecord.fabmo + ',"active_ip" : "'+ dev_obj.networks[0].ip_address+'"}');
+									devices.push(device);
+								}catch(ex){/*console.log(ex);*/}
+
+				    } else {
+				        console.log('service removed', service);
+				    }
+				});
 
 				setTimeout(function(){
 					chrome.sockets.udp.onReceive.removeListener(listener);
@@ -139,7 +150,7 @@ var detection = function(t,callback) {
 	});
 };
 
-function ChooseBestWayToConnect(tool,callback){ 
+function ChooseBestWayToConnect(tool,callback){
 	// Returns an IP address and port
 	// Automatic selection of the best way to talk to the tool
 	// Based on this priority : USB > ethernet > wifi > wifi-direct
@@ -157,7 +168,7 @@ function ChooseBestWayToConnect(tool,callback){
         hasEmbeddedItr=true;
     }
   }
-  
+
   if(hasEmbeddedItr){
   	tool.network.forEach(function(val,key){
 			if(val.interface.match(EmbededdeItrRegEx))
@@ -197,7 +208,7 @@ function ChooseBestWayToConnect(tool,callback){
 				return;
 			}
 		});
-	}	
+	}
 	if(list_itr.indexOf("wlan0") > -1)
 	{
 		tool.network.forEach(function(val,key){
@@ -217,7 +228,7 @@ function ChooseBestWayToConnect(tool,callback){
 				return;
 			}
 		});
-	}		
+	}
 }
 
 
