@@ -14,7 +14,7 @@ h1 {
     margin-top:0;
     padding-top: 5px;
     font-family: Fabfont;
-    font-weight: 100; 
+    font-weight: 100;
     color: #EEEEEE;
     width: 90%;
     margin-left: auto;
@@ -29,11 +29,59 @@ nav{
 }
 
 
+.abort_button{
+    float: right;
+    display: block;
+    top: 0;
+    position: absolute;
+    right: 0;
+    background: rgb(57, 68, 121);
+    color: #EEEEEE;
+    height: inherit;
+    padding: 15px;
+}
+
+.settings_button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background :none;
+}
+
+.settings_modal{
+    background:#EEEEEE;
+    padding:40px;
+    margin:20px;
+
+}
+
+.settings_modal_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background :none;
+}
+
+.settings_save_button{
+    position: absolute;
+    background: #5DAA35;
+    color: #EEEEEE;
+    right: 10%;
+}
+
+.error_button{
+    background: #91331E;
+    color: #EEEEEE;
+}
+.done_button{
+    background: #2E3865;
+    color: #EEEEEE;
+}
 
 h3 {
     font-family: Fabfont;
     }
-    
+
 p {
     font-family: Fabfont;
 }
@@ -48,23 +96,62 @@ p {
     margin: .7em;
     border-radius: 5px;
     box-shadow: 1px 1px 5px 0 rgba(188,188,188,1);
+    height: 130px;
+}
+
+.panelHeader{
+  padding-bottom: 20px;
 }
 
 .toolName {
-    margin-left: 2em;
     display: inline-block;
+    font-family: Fabfont;
+    font-size: 1.5em;
+}
+
+
+.scroll-box {
+  overflow: hidden;
+  position: absolute;
+  display: inline;
+}
+.scroll-text {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.toolName-scroll-box{
+  width: 40vw;
+  margin-left: 2em;
+  height: 3em;
+}
+
+.jobName-scroll-box{
+  width: 25vw;
+  height: 1.5em;
 }
 
 .ipAddress {
-    margin-left: 4em;
+  margin-left: 2em;
 }
 
 .job {
-    margin-left: 4em;
+  padding-top: .5em;
+}
+
+.job_label{
+  margin: .5em
 }
 
 .apologies{
     text-align: center;
+}
+
+.statusContainer{
+    display: inline-block;
+    right: 0;
+    float: right;
+    padding-right: 5em;
 }
 
 .statusColor{
@@ -73,17 +160,20 @@ p {
     border-radius: 50%;
     display: inline-block;
     margin-left: 1em;
+    margin-top: .7em;
 }
 
 .statusTitle{
     display: inline-block;
     margin-left: .5em;
+    position:absolute;
+    margin-top: .5em;
 }
 
 .goHere {
     position: absolute;
-    top: 3em;
-    right: 0.5em;
+    top: 50;
+    right: 15;
     float: right;
     padding-top: 11px;
     height: 49px;
@@ -137,7 +227,7 @@ p {
 }
 
 .idle{
-    background-color: #777575; 
+    background-color: #777575;
 }
 
 .manual{

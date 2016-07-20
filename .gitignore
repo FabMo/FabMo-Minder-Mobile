@@ -7,3 +7,5 @@ plugins
 *.cer
 *.certSigningRequest
 *.keystore
+*.mobileprovision
+node_modules
