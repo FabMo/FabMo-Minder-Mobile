@@ -1,6 +1,6 @@
-# FabMo-Tool-Minder-Cordova
+# FabMo-Minder-Minder
 
-The FabMo Tool Minder Cordova is a Cross-Platform mobile application for finding FabMo capable tool on your local network and connect to them.
+The FabMo Minder Mobile is a Cross-Platform mobile application for finding FabMo capable tool on your local network and connect to them.
 
 ##Features
 - Display the available machines on your network.
