@@ -10,10 +10,10 @@ The FabMo Tool Minder Cordova is a Cross-Platform mobile application for finding
 ##Installation instructions
 
 ###Android
-Simply get the latest apk from the [release page](https://github.com/FabMo/FabMo-Tool-Minder-Cordova/releases/latest) and install it. You're all set up !
+Simply get the app from the [Play Store](https://play.google.com/store/apps/details?id=com.fabmo.toolminder) and install it. You're all set up !
 
 ###IOS
-There is no release for IOS right now, because I don't have access to a Mac computer.
+The IOS releqse is in beta testing. It's coming !
 
 ##Technical specification / Credits
 This application relies on [cordova](https://cordova.apache.org/) wich is a framework for building cross-platform mobile applications. The application is written in HTML/CSS/Javascrip.
