@@ -1,4 +1,4 @@
-# FabMo-Minder-Minder
+# FabMo-Minder-Mobile
 
 The FabMo Minder Mobile is a Cross-Platform mobile application for finding FabMo capable tool on your local network and connect to them.
 
