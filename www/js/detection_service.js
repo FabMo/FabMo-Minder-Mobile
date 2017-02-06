@@ -124,7 +124,7 @@ var detection = function(t,callback) {
 					//console.log(info);
 				//});
 				var zeroconf = cordova.plugins.zeroconf;
-				zeroconf.watch('_fabmo._tcp.local.', function(result) {
+				zeroconf.watch('_fabmo._tcp.','local.', function(result) {
 				    var action = result.action;
 				    var service = result.service;
 				    if (action == 'added') {
