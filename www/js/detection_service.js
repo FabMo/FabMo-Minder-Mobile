@@ -232,11 +232,58 @@ function ChooseBestWayToConnect(tool,callback){
 }
 
 
-function DetectToolsOnTheNetworks(callback){
-	detection_service(function(err,tools){
-		callback(err,tools);
+function DetectToolsOnTheNetworks(callback, dataFromCloud, linker_port){
+	if (!callback)
+		throw "this function need a callback to work !";
+	var port = linker_port || 8080; //port of the link API
+	$.ajax({
+		url: 'http://127.0.0.1:' + port + '/where_is_my_tool',
+		type: "GET",
+		dataType : 'json'
+	}).done(function(data){
+		if (dataFromCloud === "Beacon is not responding"){
+			callback(undefined, data, undefined);
+		} else {
+			callback(undefined, data, dataFromCloud);
+		}
+	}).fail(function(){
+		err="Link API not responding !";
+		callback(err, {}, dataFromCloud);
 	});
 }
+
+function checkBeacon(callback){
+	if (!callback)
+		throw "this function need a callback to work !";
+	$.ajax({
+		url: 'https://beacon.shopbottools.com/locator/',
+		type: "GET",
+		dataType : 'json'
+	}).done(function(data){
+		callback(undefined,data);
+	}).fail(function(){
+		err="Beacon is not responding";
+		callback(err);
+	});
+}
+
+  function removeDuplicates(originalArray, objKey) {
+        var trimmedArray = [];
+        var values = [];
+        var value;
+
+        for(var i = 0; i < originalArray.length; i++) {
+          value = originalArray[i][objKey];
+
+          if(values.indexOf(value) === -1) {
+            trimmedArray.push(originalArray[i]);
+            values.push(value);
+          }
+        }
+
+        return trimmedArray;
+
+ }
 
 var uniq = function(arr){
 	var obj = {};
